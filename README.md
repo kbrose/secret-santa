@@ -1,5 +1,4 @@
-# secret-santa
-Dead simple secret santa shuffler.
+# Super Simple Secret Santa
 
 Works as follows:
 * The input names are shuffled and mapped back onto themselves.

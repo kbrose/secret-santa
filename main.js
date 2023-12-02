@@ -18,7 +18,7 @@ function submitNames() {
     shuffleArray(newNames);
   }
 
-  var linkStub = window.location.origin + window.location.pathname + "who.html#";
+  var linkStub = window.location.origin + window.location.pathname + "w#";
 
   var maxLen = Math.max(...names.map((n) => n.length));
 
@@ -60,3 +60,7 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  submitNames();
+});

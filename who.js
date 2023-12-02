@@ -4,12 +4,12 @@ function base64ToBytes(base64) {
 }
 
 function main() {
-  var name = new TextDecoder().decode(base64ToBytes(document.location.hash.split("#")[1])).split(",")
-  document.getElementById("who").innerHTML = name;
+  var gifter
+  var giftee
+  [gifter, giftee] = new TextDecoder().decode(base64ToBytes(document.location.hash.split("#")[1])).split(",")
+  document.getElementById("who").innerHTML = "Hello, " + gifter + "! You should buy a gift for " + giftee + ".";
 }
 
-main()
-
-// Usage
-// bytesToBase64(new TextEncoder().encode("a Ā 𐀀 文 🦄")); // "YSDEgCDwkICAIOaWhyDwn6aE"
-// new TextDecoder().decode(base64ToBytes("YSDEgCDwkICAIOaWhyDwn6aE")); // "a Ā 𐀀 文 🦄"
+document.addEventListener("DOMContentLoaded", function (event) {
+  main();
+});

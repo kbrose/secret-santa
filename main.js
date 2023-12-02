@@ -13,10 +13,10 @@ function submitNames() {
     shuffleArray(newNames);
   }
 
-  var linkStub = "localhost:8000/who.html#"
+  var linkStub = window.location.origin + window.location.pathname + "who.html#";
 
   links.innerHTML = names.map(
-    (s, i) => "<li>" + s + ": " + linkStub + bytesToBase64(new TextEncoder().encode(newNames[i])) + "</li>"
+    (s, i) => "<li>" + s + ": " + linkStub + bytesToBase64(new TextEncoder().encode(s + "," + newNames[i])) + "</li>"
   ).join("\n");
 }
 
@@ -50,4 +50,6 @@ function shuffleArray(array) {
   }
 }
 
-submitNames()
+document.addEventListener("DOMContentLoaded", function (event) {
+  submitNames();
+});

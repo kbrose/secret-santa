@@ -4,7 +4,12 @@ function submitNames() {
   links = document.getElementById("links");
 
   if (names.length <= 1) {
-    links.innerHtml = "At least two names required."
+    links.innerHTML = "At least two names required."
+    return
+  }
+
+  if (hasDuplicates(names)) {
+    links.innerHTML = "Duplicate names not supported."
     return
   }
 
@@ -16,23 +21,25 @@ function submitNames() {
   var linkStub = window.location.origin + window.location.pathname + "who.html#";
 
   links.innerHTML = names.map(
-    (s, i) => "<li>" + s + ": " + linkStub + bytesToBase64(new TextEncoder().encode(s + "," + newNames[i])) + "</li>"
+    (gifter, i) => {
+      var link = composeLink(linkStub, gifter, newNames[i]);
+      return "<li>" + gifter + ": <a href=\"" + link + "\">" + link + "</a></li>"
+    }
   ).join("\n");
 }
 
-function base64ToBytes(base64) {
-  const binString = atob(base64);
-  return Uint8Array.from(binString, (m) => m.codePointAt(0));
+function composeLink(stub, gifter, giftee) {
+  return stub + bytesToBase64(new TextEncoder().encode(gifter + "," + giftee))
+}
+
+function hasDuplicates(array) {
+  return (new Set(array)).size !== array.length;
 }
 
 function bytesToBase64(bytes) {
   const binString = String.fromCodePoint(...bytes);
   return btoa(binString).replace(/\//g, '_').replace(/\+/g, '-').replace(/=/g, '');
 }
-
-// Usage
-// bytesToBase64(new TextEncoder().encode("a Ā 𐀀 文 🦄")); // "YSDEgCDwkICAIOaWhyDwn6aE"
-// new TextDecoder().decode(base64ToBytes("YSDEgCDwkICAIOaWhyDwn6aE")); // "a Ā 𐀀 文 🦄"
 
 function shareEntry(arr1, arr2) {
   for (var i = 0; i < arr1.length; i++) {
@@ -49,7 +56,3 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
-
-document.addEventListener("DOMContentLoaded", function (event) {
-  submitNames();
-});

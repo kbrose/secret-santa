@@ -11,10 +11,14 @@
             margin: 40px auto;
             max-width: 650px;
             line-height: 1.6;
-            font-size: 18px;
+            font-size: 20px;
             color: #444;
             padding: 0 10px;
             font-family: sans-serif;
+        }
+
+        input {
+            font-size: 18px;
         }
 
         h1,
@@ -27,21 +31,21 @@
 
 <body>
     <main>
+        <h1>
+            Super Simple Secret Santa
+        </h1>
         <p>
             Enter the list of names, with commas separating each one.
         </p>
         <p>
-            No emails needed.
+            You can try it out with Jack and Jill below.
         </p>
         <input type="text" id="names" value="Jack, Jill" />
         <br />
-        <button onclick="submitNames()" id="namesButton">Shuffle!</button>
+        <input onclick="submitNames()" id="namesButton" type="submit" value="Shuffle!" />
         <br />
         <p>
             Send each person the link that appears next to them. Opening it tells them who to buy a gift for.
-        </p>
-        <p>
-            You can try it out with Jack and Jill below.
         </p>
         <ul id="links">
 

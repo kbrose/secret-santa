@@ -7,7 +7,7 @@ function main() {
   var gifter
   var giftee
   [gifter, giftee] = new TextDecoder().decode(base64ToBytes(document.location.hash.split("#")[1])).split(",")
-  document.getElementById("who").innerHTML = "Hello, " + gifter + "! You should buy a gift for " + giftee + ".";
+  document.getElementById("who").innerHTML = "Hello, " + gifter + "! You are buying a gift for " + giftee + ".";
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {

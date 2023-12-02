@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Secret Santa</title>
+    <style type="text/css">
+        body {
+            margin: 40px auto;
+            max-width: 650px;
+            line-height: 1.6;
+            font-size: 18px;
+            color: #444;
+            padding: 0 10px;
+            font-family: sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <p>
+            Enter the list of names, with commas separating each one.
+        </p>
+        <p>
+            No emails needed.
+        </p>
+        <input type="text" id="names" value="Jack, Jill" />
+        <br />
+        <button onclick="submitNames()" id="namesButton">Shuffle!</button>
+        <br />
+        <p>
+            Give the listed person the link that appears next to them.
+        </p>
+        <p>
+            Following the link will tell them who they should buy the gift for.
+        </p>
+        <ul id="links">
+
+        </ul>
+    </main>
+    <script src="main.js"></script>
+    <noscript>
+        <!-- Optional, place it wherever it makes sense -->
+        JavaScript must be enabled.
+    </noscript>
+</body>
+
+</html>

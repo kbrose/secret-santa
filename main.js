@@ -1,6 +1,6 @@
 function submitNames() {
   var value = document.getElementById('names').value;
-  var names = value.split(',').map((s) => s.replace(/\s/g, ""));
+  var names = value.split(',').map((s) => s.trim());
   links = document.getElementById("links");
 
   if (names.length <= 1) {

@@ -7,8 +7,8 @@ function main() {
   var gifter
   var giftee
   [gifter, giftee] = new TextDecoder().decode(base64ToBytes(document.location.hash.split("#")[1])).split(",")
-  gifter = gifter.replace(/^\s+/g, '');
-  giftee = giftee.replace(/^\s+/g, '');
+  gifter = gifter.trim();
+  giftee = giftee.trim();
   document.getElementById("who").innerHTML = "Hello, " + gifter + "! You are buying a gift for " + giftee + ".";
 }
 

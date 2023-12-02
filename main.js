@@ -20,15 +20,19 @@ function submitNames() {
 
   var linkStub = window.location.origin + window.location.pathname + "who.html#";
 
+  var maxLen = Math.max(...names.map((n) => n.length));
+
   links.innerHTML = names.map(
     (gifter, i) => {
-      var link = composeLink(linkStub, gifter, newNames[i]);
+      var link = composeLink(linkStub, gifter, newNames[i], maxLen);
       return "<li>" + gifter + ": <a href=\"" + link + "\">" + link + "</a></li>"
     }
   ).join("\n");
 }
 
-function composeLink(stub, gifter, giftee) {
+function composeLink(stub, gifter, giftee, maxLen) {
+  gifter = gifter.padStart(maxLen);
+  giftee = giftee.padStart(maxLen);
   return stub + bytesToBase64(new TextEncoder().encode(gifter + "," + giftee))
 }
 

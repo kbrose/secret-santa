@@ -1,10 +1,22 @@
+![](/assets/banner.png)
+
 # Super Simple Secret Santa
 
-Works as follows:
-* The input names are shuffled and mapped back onto themselves.
-* The gifter and giftee are concatenated and base64 encoded into the URL.
+## How to
 
-----
+1. Go to https://kbrose.github.io/secret-santa/
+2. List the participants, with commas between each name, like "Rudolph, Dasher, Comet"
+3. Click "Create assignments"
+4. Send each person their unique link, telling them who they are buying a gift for.
 
-> <img width="600" alt="Screenshot of secret santa webapp" src="https://github.com/kbrose/secret-santa/assets/4053170/b1596730-8658-42c5-a55e-4273b25ad85c">
+## How it works
 
+* The input names are shuffled, with care taken to ensure no one is matched with themselves.
+* The gifter and giftee are concatenated and base64 encoded into a URL
+* Javascript on the landing page (`/w.html`) unpacks and displays the gifter/giftee messsage
+
+## Attributions
+
+* Credit for the implementation idea goes to https://github.com/arcanis/secretsanta
+  * It's the same idea, but with fewer features and using base64 rather than an actual encryption scheme.
+* Banner image made by my partner.
